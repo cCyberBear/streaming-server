@@ -44,6 +44,6 @@ app.get("/file/:filename", (req, res) => {
 });
 
 app.use(catchError);
-app.listen(9201, () => {
-  console.log(`Listening to port 9201`);
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Listening to port ${process.env.PORT}`);
 });
