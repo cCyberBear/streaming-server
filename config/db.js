@@ -17,7 +17,6 @@ class Mongo {
     const conn = mongoose.connection;
     conn.once("open", () => {
       this.gridfs = new mongoose.mongo.GridFSBucket(conn.db, {
-        chunkSizeBytes: 10 ** 6,
         bucketName: process.env.BUCKET_NAME,
       });
     });
