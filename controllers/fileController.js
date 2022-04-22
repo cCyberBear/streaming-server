@@ -20,8 +20,8 @@ exports.createFile = catchAsync(async (req, res) => {
 
 exports.getAllFile = catchAsync(async (req, res) => {
   const files = await File.find({});
-  res.status(400).json({
-    success: false,
+  res.status(200).json({
+    success: true,
     data: files,
   });
 });
