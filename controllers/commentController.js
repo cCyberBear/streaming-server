@@ -9,6 +9,6 @@ exports.sendComment = catchAsync(async (req, res) => {
 exports.getComment = catchAsync(async (req, res) => {
   const Comments = await Comment.find({
     videoId: req.params.videoId,
-  });
+  }).populate("userId");
   res.status(200).json(Comments);
 });
