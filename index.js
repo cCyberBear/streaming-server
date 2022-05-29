@@ -4,6 +4,8 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 const cors = require("cors");
+const userRouter = require("./routes/userRoute");
+const commentRouter = require("./routes/commentRoute");
 
 const fileRouter = require("./routes/fileRoute");
 const Mongo = require("./config/db");
@@ -12,6 +14,8 @@ Mongo.conect();
 app.use(express.json());
 app.use(cors());
 app.use("/kd/api/v1/video", fileRouter);
+app.use("/kd/api/v1/user", userRouter);
+app.use("/kd/api/v1/comment", commentRouter);
 app.get("/file/:filename", (req, res) => {
   const { filename } = req.params;
   const range = req.headers.range;
